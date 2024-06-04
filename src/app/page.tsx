@@ -3,21 +3,30 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, FormActions } from "./contexts/FormContext";
+import { useEffect } from "react";
 
 const Page = () => {
   const router = useRouter();
   const { state, dispatch } = useForm();
+
+  useEffect(() => {
+    dispatch({ type: FormActions.setCurrentStep, payload: 1 });
+  }, []);
 
   const handleNameChange = (e: string) => {
     dispatch({ type: FormActions.setName, payload: e });
   };
 
   const handleNextStep = () => {
-    router.push("/step2");
+    if (state.name) {
+      router.push("/step2");
+    } else {
+      alert("Preencha os dados");
+    }
   };
   return (
     <div className="h-full">
-      <p className="text-[13px] font-[#b8b8d4]">Passo 1/3 - {state.name}</p>
+      <p className="text-[13px] font-[#b8b8d4]">Passo {state.currentStep}/3</p>
       <h1 className="m-0 p-0 text-[26px]">Vamos começar com seu nome</h1>
       <p className="text-[13px] font-[#b8b8d4]">
         Preencha o campo abaixo com seu nome completo.
