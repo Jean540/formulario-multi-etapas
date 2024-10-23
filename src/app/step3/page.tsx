@@ -27,7 +27,7 @@ const FormStep3 = () => {
 
   const handleNextStep = () => {
     if (state.email !== "" && state.github !== "") {
-      console.log(state);
+      router.push("./step4");
     } else {
       alert("Preencha os dados");
     }

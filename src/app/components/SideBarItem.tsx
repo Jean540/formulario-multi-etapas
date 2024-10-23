@@ -3,6 +3,7 @@ import Link from "next/link";
 import profile from "../../../public/profile.png";
 import book from "../../../public/book.png";
 import mail from "../../../public/mail.png";
+import done from "../../../public/done.png";
 import { useForm } from "../contexts/FormContext";
 import { useEffect } from "react";
 
@@ -49,8 +50,10 @@ export const SideBarItem = ({
             />
           ) : icon === "book" ? (
             <Image width={24} height={24} src={book} alt={`icone de ${icon}`} />
-          ) : (
+          ) : icon === "mail" ? (
             <Image width={24} height={24} src={mail} alt={`icone de ${icon}`} />
+          ) : (
+            <Image width={24} height={24} src={done} alt={`icone de ${icon}`} />
           )}
         </div>
         <div

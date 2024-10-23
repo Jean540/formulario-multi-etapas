@@ -48,6 +48,13 @@ export default function RootLayout({
                     path="/step3"
                     step={3}
                   />
+                  <SideBarItem
+                    title="Concluído"
+                    description="Sucesso"
+                    icon="done"
+                    path="/step4"
+                    step={4}
+                  />
                 </div>
                 <div className="flex-1 pl-[40px] pt-[40px]">{children}</div>
               </div>
